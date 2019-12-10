@@ -36,7 +36,7 @@ def create_training_data():
                  training_data.append([new_array, class_num])
             except Exception as e:
                  pass
-#test_dat=[]
+test_dat=[]
 user_img=[]
 
 '''def  testt_data(x):
@@ -53,9 +53,6 @@ def Read_Img_From_User(x):
         img=cv2.imread(x,cv2.IMREAD_GRAYSCALE)
         img0=cv2.resize(img,(IMG_SIZE,IMG_SIZE))
         user_img.append(img0)
-        imgt=cv2.imread("image_resizeit/class1_224size/anime2.jpg",cv2.IMREAD_GRAYSCALE)
-        img2=cv2.resize(imgt,(IMG_SIZE,IMG_SIZE))
-        user_img.append(img2)
     except:
         print("There is problem with your path image check again ")
 
@@ -133,7 +130,7 @@ except:
     history = model.fit(X, y, batch_size=32, epochs=40, validation_split=0.1)
     model.save("my_model.h5")
 if user_img.size>0:
-    output=model.predict_classes(user_img)
+    output=model.predict_classes([user_img])
     print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
     print("the answer:",catag_i[output[0]])
     print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
