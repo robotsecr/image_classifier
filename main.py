@@ -1,12 +1,10 @@
 from matplotlib.image import imread
-from PIL import Image
 import matplotlib.pyplot as plt
 import codecs,json
 import tensorflow as tf
 import numpy as np
 from tensorflow import keras
 import random
-import pickle
 import os
 import cv2
 import tensorflow as tf
@@ -14,83 +12,6 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, Activation, Flatten, Conv2D, MaxPooling2D
 from tensorflow.keras.models import model_from_json
 from tensorflow.keras.models import load_model
-
-
-'''def resize():
-
-    ang1=Image.open('images_y/ang1.jpg')
-    img = ang1.resize((224, 224), Image.ANTIALIAS)
-    img.save('images_y/ang12.jpg')
-
-    ang2=Image.open('images_y/ang2.jpg')
-    img = ang2.resize((224, 224), Image.ANTIALIAS)
-    img.save('images_y/ang22.jpg')
-
-    ang3=Image.open('images_y/ang3.jpg')
-    img = ang3.resize((224, 224), Image.ANTIALIAS)
-    img.save('images_y/ang32.jpg')
-
-    ang4=Image.open('images_y/ang4.jpg')
-    img = ang4.resize((224, 224), Image.ANTIALIAS)
-    img.save('images_y/ang42.jpg')
-
-    ang5=Image.open('images_y/ang5.jpg')
-    img = ang5.resize((224, 224), Image.ANTIALIAS)
-    img.save('images_y/ang52.jpg')
-
-    anime1=Image.open('images_y/anime1.jpg')
-    img = anime1.resize((224, 224), Image.ANTIALIAS)
-    img.save('images_y/anime12.jpg')
-
-    anime2=Image.open('images_y/anime2.jpg')
-    img = anime2.resize((224, 224), Image.ANTIALIAS)
-    img.save('images_y/anime22.jpg')
-
-    anime3=Image.open('images_y/anime3.jpg')
-    img = anime3.resize((224, 224), Image.ANTIALIAS)
-    img.save('images_y/anime32.jpg')
-
-    anime4=Image.open('images_y/anime4.jpg')
-    img = anime4.resize((224, 224), Image.ANTIALIAS)
-    img.save('images_y/anime42.jpg')
-
-ang1=imread('images_y/ang1.jpg')
-ang1=ang1/255.0
-ang2=imread('images_y/ang2.jpg')
-ang2=ang2/255.0
-ang3=imread('images_y/ang3.jpg')
-ang3=ang3/255.0
-ang4=imread('images_y/ang4.jpg')
-ang4=ang4/255.0
-ang5=imread('images_y/ang5.jpg')
-ang5=ang5/255.0
-anime1=imread('images_y/anime1.jpg')
-anime1=anime1/255.0
-anime2=imread('images_y/anime2.jpg')
-anime2=anime2/255.0
-anime3=imread('images_y/anime3.jpg')
-anime3=anime3/255.0
-anime4=imread('images_y/anime4.jpg')
-anime4=anime4/255.0
-train_images=[ang1,ang2,ang3,ang4,anime1,anime2,anime3,anime4]
-train_images=np.array(train_images).reshape(-1,224,224)
-train_labels=[1,1,1,1,0,0,0,0]
-train_labels=np.array(train_labels)
-test_images=ang5
-test_labels=1
-model=keras.Sequential([
-keras.layers.Flatten(input_shape=(224,224)),
-keras.layers.Dense(444,activation="relu"),
-keras.layers.Dense(2,activation="softmax")
-])
-model.compile(optimizer="adam",loss="sparse_categorical_crossentropy",metrics=["accuracy"])
-model.fit(train_images,train_labels,epochs=10)
-test_loss,test_acc=model.evaluate(test_images,test_labels)
-print("Tested Acc",test_acc)
-
-
-print(train_images.shape)
-'''
 file_list=[]
 class_list=[]
 IMG_SIZE=50
